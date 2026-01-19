@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - New Holland Indah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: white;
+            border-right: 1px solid var(--border);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .sidebar-nav {
+            padding: 1rem 0;
+        }
+
+        .nav-item {
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .nav-item.active {
+            background: rgba(30, 90, 63, 0.1);
+            color: var(--primary);
+            border-right: 3px solid var(--primary);
+        }
+
+        .sidebar-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            background: var(--secondary);
+        }
+
+        .top-bar {
+            background: white;
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(30, 90, 63, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem;
+            background: var(--secondary);
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text);
+        }
+
+        td {
+            padding: 0.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .badge.success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent);
+        }
+
+        .badge.warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .badge.danger {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+
+        @media (max-width: 968px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="logo-icon">🏠</div>
+                    <span>New Holland Indah</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <span>🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span>🛏️</span>
+                    <span>Data Kamar</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span>👥</span>
+                    <span>Data Penghuni</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span>💰</span>
+                    <span>Pembayaran</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span>📊</span>
+                    <span>Laporan</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span>📢</span>
+                    <span>Pengumuman</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <div style="font-weight: 600; font-size: 0.875rem;">Admin</div>
+                        <div style="font-size: 0.75rem; color: var(--text-light);">Administrator</div>
+                    </div>
+                </div>
+                <a href="../login.html" class="nav-item" style="margin-top: 1rem; color: var(--danger);">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <h1 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Dashboard Admin</h1>
+                    <p style="color: var(--text-light); font-size: 0.875rem;">Kelola data kost New Holland Indah</p>
+                </div>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <button class="btn-primary" onclick="alert('Tambah Data')">+ Tambah Data</button>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🏠</div>
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Total Kamar</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--accent);">✓</div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Kamar Terisi (67%)</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: var(--info);">👥</div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Penghuni Aktif</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--warning);">💰</div>
+                        <div class="stat-value">Rp 6jt</div>
+                        <div class="stat-label">Pemasukan Bulan Ini</div>
+                    </div>
+                </div>
+
+                <!-- Recent Tenants -->
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 class="card-title" style="margin: 0;">Data Penghuni Terbaru</h3>
+                        <button class="btn-secondary">Lihat Semua</button>
+                    </div>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Kamar</th>
+                                <th>No. HP</th>
+                                <th>Tanggal Masuk</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Andi Rahman</strong></td>
+                                <td>A-101</td>
+                                <td>081234567890</td>
+                                <td>1 Jan 2024</td>
+                                <td><span class="badge success">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Siti Permata</strong></td>
+                                <td>B-205</td>
+                                <td>082345678901</td>
+                                <td>15 Feb 2024</td>
+                                <td><span class="badge success">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Budi Santoso</strong></td>
+                                <td>C-301</td>
+                                <td>083456789012</td>
+                                <td>10 Mar 2024</td>
+                                <td><span class="badge success">Aktif</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Recent Payments -->
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 class="card-title" style="margin: 0;">Pembayaran Terbaru</h3>
+                        <button class="btn-secondary">Lihat Semua</button>
+                    </div>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Penghuni</th>
+                                <th>Kamar</th>
+                                <th>Bulan</th>
+                                <th>Jumlah</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Andi Rahman</td>
+                                <td>A-101</td>
+                                <td>Januari 2025</td>
+                                <td>Rp 500.000</td>
+                                <td><span class="badge success">Lunas</span></td>
+                            </tr>
+                            <tr>
+                                <td>Siti Permata</td>
+                                <td>B-205</td>
+                                <td>Januari 2025</td>
+                                <td>Rp 700.000</td>
+                                <td><span class="badge success">Lunas</span></td>
+                            </tr>
+                            <tr>
+                                <td>Budi Santoso</td>
+                                <td>C-301</td>
+                                <td>Januari 2025</td>
+                                <td>Rp 500.000</td>
+                                <td><span class="badge warning">Pending</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

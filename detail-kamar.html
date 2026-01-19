@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Kamar - New Holland Indah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Logo New Holland Indah" class="logo-img">
+                <span>New Holland Indah</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#beranda">Beranda</a>
+                <a href="index.html#fasilitas">Fasilitas</a>
+                <a href="index.html#kamar">Kamar</a>
+                <a href="index.html#lokasi">Lokasi</a>
+                <a href="login.html" class="btn-nav">Masuk</a>
+            </div>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Room Detail Section -->
+    <section style="margin-top: 80px; padding: 3rem 1.5rem;">
+        <div class="container">
+            <a href="index.html#kamar" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); margin-bottom: 2rem; font-weight: 600;">
+                ← Kembali ke Daftar Kamar
+            </a>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                <!-- Room Image -->
+                <div>
+                    <div style="height: 400px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 5rem; font-weight: 700; margin-bottom: 1.5rem;">
+                        <span id="roomLetter">A</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                        <div style="height: 120px; background: var(--secondary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🛏️</div>
+                        <div style="height: 120px; background: var(--secondary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🪑</div>
+                        <div style="height: 120px; background: var(--secondary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🚿</div>
+                    </div>
+                </div>
+
+                <!-- Room Info -->
+                <div>
+                    <div style="display: inline-block; padding: 0.5rem 1rem; background: rgba(30, 90, 63, 0.1); color: var(--primary); border-radius: 20px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">
+                        Tersedia
+                    </div>
+
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1rem;" id="roomTitle">Kamar Tipe A</h1>
+
+                    <div style="font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 2rem;" id="roomPrice">
+                        Rp 500.000 <span style="font-size: 1rem; font-weight: 500; color: var(--text-light);">/ bulan</span>
+                    </div>
+
+                    <!-- Capacity Options -->
+                    <div style="background: var(--secondary); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1rem;">Pilih Kapasitas</h3>
+                        <div style="display: flex; gap: 1rem;">
+                            <label style="flex: 1; padding: 1rem; background: white; border: 2px solid var(--primary); border-radius: 10px; cursor: pointer; text-align: center;">
+                                <input type="radio" name="capacity" value="1" checked style="display: none;">
+                                <div style="font-weight: 600;">1 Orang</div>
+                                <div style="color: var(--primary); font-weight: 700; margin-top: 0.5rem;">Rp 500.000</div>
+                            </label>
+                            <label style="flex: 1; padding: 1rem; background: white; border: 2px solid var(--border); border-radius: 10px; cursor: pointer; text-align: center;">
+                                <input type="radio" name="capacity" value="2" style="display: none;">
+                                <div style="font-weight: 600;">2 Orang</div>
+                                <div style="color: var(--primary); font-weight: 700; margin-top: 0.5rem;">Rp 700.000</div>
+                                <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 0.25rem;">+ Kasur tambahan</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <h3 style="margin-bottom: 1rem;">Fasilitas Kamar</h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">🪑</span>
+                            <span>Lemari Pakaian</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">⚡</span>
+                            <span>Listrik Gratis Awal Masuk</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">💧</span>
+                            <span>Air Gratis</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">🅿️</span>
+                            <span>Parkir Gratis</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">🎓</span>
+                            <span>Dekat Kampus</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">🌳</span>
+                            <span>Lingkungan Nyaman</span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <h3 style="margin-bottom: 1rem;">Deskripsi</h3>
+                    <p style="color: var(--text-light); line-height: 1.8; margin-bottom: 2rem;">
+                        Kamar kost yang nyaman dan strategis, berlokasi hanya 5 menit dari Kampus 1 Universitas Kuningan. Dilengkapi dengan fasilitas lengkap termasuk lemari pakaian, listrik gratis awal masuk, air gratis, dan parkiran gratis. Lingkungan aman dan tenang, cocok
+                        untuk mahasiswa.
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="register.html" class="btn-primary" style="flex: 1; text-align: center;">
+                            Daftar Sekarang
+                        </a>
+                        <a href="https://wa.me/6289657769065" target="_blank" class="btn-secondary" style="flex: 1; text-align: center;">
+                            💬 Hubungi via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>New Holland Indah</h3>
+                <p>Kost strategis dekat Kampus 1 Universitas Kuningan dengan fasilitas lengkap dan harga terjangkau.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="index.html#beranda">Beranda</a></li>
+                    <li><a href="index.html#fasilitas">Fasilitas</a></li>
+                    <li><a href="index.html#kamar">Kamar</a></li>
+                    <li><a href="index.html#lokasi">Lokasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Akses</h4>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Registrasi</a></li>
+                    <li><a href="lokasi.html">Lokasi Detail</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 New Holland Indah. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Get room type from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const roomType = urlParams.get('type') || 'A';
+
+        // Update page content based on room type
+        document.getElementById('roomLetter').textContent = roomType;
+        document.getElementById('roomTitle').textContent = `Kamar Tipe ${roomType}`;
+
+        // Handle capacity radio buttons
+        const capacityLabels = document.querySelectorAll('label');
+        const radioButtons = document.querySelectorAll('input[name="capacity"]');
+
+        capacityLabels.forEach((label, index) => {
+            label.addEventListener('click', function() {
+                capacityLabels.forEach(l => {
+                    l.style.borderColor = 'var(--border)';
+                });
+                this.style.borderColor = 'var(--primary)';
+            });
+        });
+    </script>
+</body>
+
+</html>

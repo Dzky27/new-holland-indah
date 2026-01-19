@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pemilik - New Holland Indah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: white;
+            border-right: 1px solid var(--border);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .sidebar-nav {
+            padding: 1rem 0;
+        }
+
+        .nav-item {
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .nav-item.active {
+            background: rgba(30, 90, 63, 0.1);
+            color: var(--primary);
+            border-right: 3px solid var(--primary);
+        }
+
+        .sidebar-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            background: var(--secondary);
+        }
+
+        .top-bar {
+            background: white;
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(30, 90, 63, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .revenue-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .revenue-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+
+        .revenue-item-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .revenue-item-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 968px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+
+            .stats-grid, .revenue-summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="logo-icon">🏠</div>
+                    <span>New Holland Indah</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <span>🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span>📊</span>
+                    <span>Laporan Keuangan</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span>📈</span>
+                    <span>Statistik</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span>🛏️</span>
+                    <span>Data Kamar</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">PK</div>
+                    <div>
+                        <div style="font-weight: 600; font-size: 0.875rem;">Pemilik Kost</div>
+                        <div style="font-size: 0.75rem; color: var(--text-light);">Owner</div>
+                    </div>
+                </div>
+                <a href="../login.html" class="nav-item" style="margin-top: 1rem; color: var(--danger);">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <h1 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Dashboard Pemilik</h1>
+                    <p style="color: var(--text-light); font-size: 0.875rem;">Laporan & Statistik (Read Only)</p>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🏠</div>
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Total Kamar</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--accent);">✓</div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Kamar Terisi (67%)</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: var(--info);">👥</div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Total Penghuni</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--warning);">💰</div>
+                        <div class="stat-value">Rp 6jt</div>
+                        <div class="stat-label">Pemasukan Bulan Ini</div>
+                    </div>
+                </div>
+
+                <!-- Revenue Chart Placeholder -->
+                <div class="card">
+                    <h3 class="card-title">Grafik Pendapatan Tahun 2025</h3>
+                    <div style="height: 300px; background: var(--secondary); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+                        📊 Grafik Pendapatan (Chart.js)
+                    </div>
+                </div>
+
+                <!-- Revenue Summary -->
+                <div class="card">
+                    <h3 class="card-title">Ringkasan Keuangan 2025</h3>
+                    <div class="revenue-summary">
+                        <div class="revenue-item">
+                            <div class="revenue-item-value" style="color: var(--accent);">Rp 72jt</div>
+                            <div class="revenue-item-label">Total Pemasukan</div>
+                        </div>
+                        <div class="revenue-item">
+                            <div class="revenue-item-value" style="color: var(--primary);">Rp 6jt</div>
+                            <div class="revenue-item-label">Rata-rata/Bulan</div>
+                        </div>
+                        <div class="revenue-item">
+                            <div class="revenue-item-value" style="color: var(--info);">Rp 7.2jt</div>
+                            <div class="revenue-item-label">Tertinggi</div>
+                            <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 0.25rem;">Maret 2025</div>
+                        </div>
+                        <div class="revenue-item">
+                            <div class="revenue-item-value">Rp 5jt</div>
+                            <div class="revenue-item-label">Terendah</div>
+                            <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 0.25rem;">Januari 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monthly Report -->
+                <div class="card">
+                    <h3 class="card-title">Laporan Bulanan</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left; padding: 0.75rem; background: var(--secondary); font-weight: 600; font-size: 0.875rem;">Bulan</th>
+                                <th style="text-align: left; padding: 0.75rem; background: var(--secondary); font-weight: 600; font-size: 0.875rem;">Kamar Terisi</th>
+                                <th style="text-align: left; padding: 0.75rem; background: var(--secondary); font-weight: 600; font-size: 0.875rem;">Okupansi</th>
+                                <th style="text-align: left; padding: 0.75rem; background: var(--secondary); font-weight: 600; font-size: 0.875rem;">Pemasukan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);"><strong>Januari 2025</strong></td>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);">10</td>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);">56%</td>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);"><strong style="color: var(--accent);">Rp 5.000.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);"><strong>Februari 2025</strong></td>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);">11</td>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);">61%</td>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);"><strong style="color: var(--accent);">Rp 6.000.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);"><strong>Maret 2025</strong></td>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);">13</td>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);">72%</td>
+                                <td style="padding: 0.75rem; border-top: 1px solid var(--border);"><strong style="color: var(--accent);">Rp 7.200.000</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

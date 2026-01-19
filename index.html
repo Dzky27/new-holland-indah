@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Holland Indah - Kost Strategis Dekat Kampus Uniku</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+         :root {
+            --primary: #1e5a3f;
+            --primary-dark: #14402d;
+            --primary-light: #2d7a56;
+            --secondary: #f8fafc;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --white: #ffffff;
+            --accent: #10b981;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+        /* Navbar */
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn-nav {
+            padding: 0.5rem 1.25rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-nav:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        /* Hero Section */
+        
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, var(--secondary) 0%, #e0f2fe 100%);
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+        
+        .hero-highlight {
+            color: var(--primary);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .stat-info strong {
+            display: block;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+        
+        .stat-info span {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn-primary,
+        .btn-secondary {
+            padding: 0.875rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 90, 63, 0.3);
+        }
+        
+        .btn-secondary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: white;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        /* HERO HORIZONTAL */
+        
+        .hero-horizontal {
+            width: 100%;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+        
+        .hero-track {
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .hero-item {
+            flex: 0 0 80%;
+            max-width: 80%;
+            height: 420px;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            scroll-snap-align: start;
+        }
+        /* IMAGE */
+        
+        .hero-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* TEXT OVERLAY */
+        
+        .hero-caption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: #fff;
+        }
+        
+        .hero-caption h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+        
+        .hero-caption p {
+            margin-top: 6px;
+            font-size: 14px;
+        }
+        /* RESPONSIVE */
+        
+        @media (max-width: 768px) {
+            .hero-item {
+                flex: 0 0 90%;
+                max-width: 90%;
+                height: 300px;
+            }
+        }
+        
+        .hero-image {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        /* Facilities Section */
+        
+        .facilities {
+            padding: 5rem 1.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(30, 90, 63, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .facility-card {
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .facility-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(30, 90, 63, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        .facility-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        
+        .facility-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        /* Rooms Section */
+        
+        .rooms {
+            padding: 5rem 1.5rem;
+            background: var(--secondary);
+        }
+        
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .room-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .room-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .room-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .room-content {
+            padding: 1.5rem;
+        }
+        
+        .room-price {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .room-price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+        
+        .room-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .room-features li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .room-features li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .btn-room {
+            width: 100%;
+            padding: 0.875rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-room:hover {
+            background: var(--primary-dark);
+        }
+        /* Location Section */
+        
+        .location {
+            padding: 5rem 1.5rem;
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(30, 90, 63, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .info-text h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+            color: var(--text);
+        }
+        
+        .info-text p {
+            color: var(--text-light);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Footer */
+        
+        .footer {
+            background: var(--text);
+            color: white;
+            padding: 3rem 1.5rem 1.5rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-about h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        /* Responsive */
+        
+        @media (max-width: 968px) {
+            .hero-container,
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+            .facilities-grid,
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">🏠</div>
+                <span>New Holland Indah</span>
+            </div>
+            <div class="nav-links">
+                <a href="#beranda">Beranda</a>
+                <a href="#fasilitas">Fasilitas</a>
+                <a href="#kamar">Kamar</a>
+                <a href="#lokasi">Lokasi</a>
+                <a href="login.html" class="btn-nav">Masuk</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel Section -->
+    <section class="hero" id="beranda">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>
+                    Kost Nyaman & Strategis<br>
+                    <span class="hero-highlight">Dekat Kampus Uniku</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Hunian berkualitas dengan harga terjangkau di Jl. Daeng Sutigna, Cijoho. Fasilitas lengkap, lingkungan aman, dan akses mudah ke Universitas Kuningan.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">🏠</div>
+                        <div class="stat-info">
+                            <strong>18 Kamar</strong>
+                            <span>Tersedia</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <strong>Rp 500rb</strong>
+                            <span>Per Bulan</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">📍</div>
+                        <div class="stat-info">
+                            <strong>5 Menit</strong>
+                            <span>Ke Kampus</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#kamar" class="btn-primary">Lihat Kamar</a>
+                    <a href="register.html" class="btn-secondary">Daftar Sekarang</a>
+                </div>
+            </div>
+
+            <!-- HERO HORIZONTAL SCROLL -->
+            <section class="hero-horizontal">
+                <div class="hero-track">
+                    <!-- ITEM 1 -->
+                    <div class="hero-item">
+                        <img src="assets/kos-depan.jpg" alt="Tampak Depan Kost">
+                        <div class="hero-caption">
+                            <h3>Tampak Depan Kost</h3>
+                            <p>Bangunan kokoh dengan parkir luas</p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 2 -->
+                    <div class="hero-item">
+                        <img src="assets/kamar-interior.jpg" alt="Interior Kamar">
+                        <div class="hero-caption">
+                            <h3>Kamar Nyaman</h3>
+                            <p>Lengkap dan bersih</p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3 -->
+                    <div class="hero-item">
+                        <img src="assets/interior.jpg" alt="Tampilan Lantai 2">
+                        <div class="hero-caption">
+                            <h3>Lantai 2</h3>
+                            <p>Adem dan terang</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Navigation Arrows -->
+            <div class="carousel-nav">
+                <button class="carousel-btn prev-btn">←</button>
+                <button class="carousel-btn next-btn">→</button>
+            </div>
+
+            <!-- Dots Indicator -->
+            <div class="carousel-dots">
+                <button class="carousel-dot active" data-slide="0"></button>
+                <button class="carousel-dot" data-slide="1"></button>
+                <button class="carousel-dot" data-slide="2"></button>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="facilities" id="fasilitas">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Fasilitas</span>
+                <h2 class="section-title">Fasilitas Lengkap & Gratis</h2>
+                <p class="section-subtitle">
+                    Nikmati berbagai fasilitas tanpa biaya tambahan untuk kenyamanan Anda
+                </p>
+            </div>
+
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-icon">🪑</div>
+                    <h3>Lemari Kamar</h3>
+                    <p>Lemari pakaian sudah tersedia di setiap kamar untuk penyimpanan</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">⚡</div>
+                    <h3>Listrik Gratis</h3>
+                    <p>Listrik sudah termasuk dalam harga sewa tanpa biaya tambahan</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">💧</div>
+                    <h3>Air Gratis</h3>
+                    <p>Akses air bersih unlimited tanpa batas pemakaian</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">🅿️</div>
+                    <h3>Parkiran Gratis</h3>
+                    <p>Area parkir luas untuk motor dan mobil yang aman</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">🎓</div>
+                    <h3>Dekat Kampus</h3>
+                    <p>Hanya 5 menit ke Kampus 1 Universitas Kuningan</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">🌳</div>
+                    <h3>Lingkungan Nyaman</h3>
+                    <p>Lokasi strategis dengan lingkungan yang aman dan tenang</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section class="rooms" id="kamar">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Tipe Kamar</span>
+                <h2 class="section-title">Pilihan Kamar Sesuai Kebutuhan</h2>
+                <p class="section-subtitle">
+                    18 kamar tersedia dengan harga terjangkau dan fasilitas lengkap
+                </p>
+            </div>
+
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image">A</div>
+                    <div class="room-content">
+                        <div class="room-price">
+                            Rp 500.000 <span>/ bulan</span>
+                        </div>
+                        <ul class="room-features">
+                            <li>Kapasitas 1 orang</li>
+                            <li>Lemari pakaian</li>
+                            <li>Listrik gratis</li>
+                            <li>Air gratis</li>
+                            <li>Parkir gratis</li>
+                        </ul>
+                        <button class="btn-room" onclick="window.location.href='detail-kamar.html'">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">B</div>
+                    <div class="room-content">
+                        <div class="room-price">
+                            Rp 700.000 <span>/ bulan</span>
+                        </div>
+                        <ul class="room-features">
+                            <li>Kapasitas 2 orang</li>
+                            <li>Kasur tambahan</li>
+                            <li>Lemari pakaian</li>
+                            <li>Listrik & air gratis</li>
+                            <li>Parkir gratis</li>
+                        </ul>
+                        <button class="btn-room" onclick="window.location.href='detail-kamar.html'">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">C</div>
+                    <div class="room-content">
+                        <div class="room-price">
+                            Rp 500.000 <span>/ bulan</span>
+                        </div>
+                        <ul class="room-features">
+                            <li>Harga standar</li>
+                            <li>Fasilitas lengkap</li>
+                            <li>Dekat kampus</li>
+                            <li>Lingkungan nyaman</li>
+                            <li>Aman & tenang</li>
+                        </ul>
+                        <button class="btn-room" onclick="window.location.href='detail-kamar.html'">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="lokasi">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Lokasi</span>
+                <h2 class="section-title">Lokasi Strategis & Mudah Dijangkau</h2>
+                <p class="section-subtitle">
+                    Temukan kami di lokasi yang strategis dekat kampus
+                </p>
+            </div>
+
+            <div class="location-content">
+                <div class="location-info">
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <h4>Alamat Lengkap</h4>
+                            <p>Jl. Daeng Sutigna, Cijoho, Kec. Kuningan, Kabupaten Kuningan, Jawa Barat 45513</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📱</div>
+                        <div class="info-text">
+                            <h4>Telepon / WhatsApp</h4>
+                            <p>089657769065</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">🗺️</div>
+                        <div class="info-text">
+                            <h4>Kode Lokasi (Plus Code)</h4>
+                            <p>2GG3+MC Cijoho, Kabupaten Kuningan, Jawa Barat</p>
+                        </div>
+                    </div>
+
+                    <a href="lokasi.html" class="btn-primary" style="align-self: flex-start;">
+                        Buka di Google Maps →
+                    </a>
+                </div>
+
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.123456789!2d108.4833!3d-6.9833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTgnNTkuOSJTIDEwOMKwMjknMDAuMCJF!5e0!3m2!1sen!2sid!4v1234567890" allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>New Holland Indah</h3>
+                <p>
+                    Kost strategis dekat Kampus 1 Universitas Kuningan dengan fasilitas lengkap dan harga terjangkau. Hunian nyaman untuk mahasiswa dan pekerja.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#fasilitas">Fasilitas</a></li>
+                    <li><a href="#kamar">Kamar</a></li>
+                    <li><a href="#lokasi">Lokasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Akses</h4>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Registrasi</a></li>
+                    <li><a href="lokasi.html">Lokasi Detail</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 New Holland Indah. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        const track = document.querySelector('.hero-horizontal');
+
+        let scrollAmount = 0;
+        setInterval(() => {
+            scrollAmount += track.clientWidth * 0.8;
+            if (scrollAmount >= track.scrollWidth) scrollAmount = 0;
+            track.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }, 4000);
+    </script>
+
+</body>
+
+</html>
